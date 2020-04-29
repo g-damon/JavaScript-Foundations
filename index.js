@@ -4,9 +4,9 @@
 /* Create variables for principal, interest rate, and years. Assign them the values 200000, 0.05, and 30 respectively. Create another value called name and give it the value of your own name.
 */
 const principal = 200000;
-
-
-
+const interest = 0.05;
+const years = 30;
+const name = "Damon";
 
 
 // 🏡 Task 1.5: Simple Math
@@ -16,8 +16,10 @@ Create a variable called `monthlyInterestRate` and give it the value of interest
 
 Create another variable called `periods` and give it the value of years*12.
 */
-
-
+const mIr = interest/12;
+console.log(mIr);
+const months = years*12;
+console.log(months);
 
 
 // 🏡 Task 2: Harder Math
@@ -29,16 +31,20 @@ Hint #2: you'll need to use the `math` object for parts of this calculation!
 
 When your math is correct, monthlyRate will equal 1073.64
 */
-
-
-
-
+function calcUlator() {
+const aa = mIr + 1;
+const ee = Math.pow(mIr * aa, months);
+const bb = Math.pow(aa, months);
+const ff = bb - 1;
+const monthlyRate = principal*(ee/ff);
+return monthlyRate;
+}
+console.log(calcUlator());
 // 🏡 Task 3: Function
 /* Create a function called `mortgageCalculator` that combines all of the steps from task 1 and 2 and returns a sentence "{Name}, your monthly rate is ${monthlyRate}"
 
 If your name is `Oscar` mortgageCalculator() should return "Oscar, your monthly rate is 1073.64"
 */
-
 
 
 
@@ -96,3 +102,5 @@ For example, variableInterestRate(200000, 0.04, 30) should console.log:
 
 
 /* 🏡  Refactor your `variableInterestRate()` function to accept an array of interest rates (make sure to copy and paste as to not lose your work!) */
+
+document.addEventListener('click', mortCalc("Damon"));
