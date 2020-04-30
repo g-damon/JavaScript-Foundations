@@ -1,45 +1,45 @@
+
 // 🌟🌟🌟 M V P 🌟🌟🌟//
 
 // 🏡 Task 1: Variables
 /* Create variables for principal, interest rate, and years. Assign them the values 200000, 0.05, and 30 respectively. Create another value called name and give it the value of your own name.
 */
-const principal = 200000;
-const interest = 0.05;
-const years = 30;
-const name = "Damon";
 
-
+const Y = 30;
+const Name = '';
 // 🏡 Task 1.5: Simple Math
 /* To create a monthly mortgage rate calculator, we need to know the number of years in months and the monthly interest rate.
-
 Create a variable called `monthlyInterestRate` and give it the value of interest rate divided by 12.
-
 Create another variable called `periods` and give it the value of years*12.
 */
-const mIr = interest/12;
-console.log(mIr);
-const months = years*12;
-console.log(months);
-
-
+const mIr = I / 12;
+const mnths = Y * 12;
 // 🏡 Task 2: Harder Math
 /* Create your calculator! Use the formula in the ReadMe to run calculations on your numbers. Save the final value into a variable called monthlyRate.
-
 Hint: while these calculations can be done in one line, it might be helpful to create a variable called "numerator" to calculate the numerator, and another called "denominator" to calculate the denominator
-
 Hint #2: you'll need to use the `math` object for parts of this calculation!
-
 When your math is correct, monthlyRate will equal 1073.64
 */
-function calcUlator() {
-const aa = mIr + 1;
-const ee = Math.pow(mIr * aa, months);
-const bb = Math.pow(aa, months);
-const ff = bb - 1;
-const monthlyRate = principal*(ee/ff);
-return monthlyRate;
+function mortgageCalc(P, I, CS, N)
+{
+    let mIr = I/12;
+    if(CS>740) {
+        I = I - 0.005;}
+        else if(CS<660) {
+            I = I + 0.005;
+        } else {
+            I = I;
+        }
+    let numer = mIr * Math.pow( ( 1 + mIr ), mnths );
+    let denom = Math.pow( (mIr  + 1 ), mnths)-1;
+    const monthlyRate = Math.round(P * ( numer / denom ));
+    return `${N}, your monthly rate is ${monthlyRate}`;
 }
-console.log(calcUlator());
+
+console.log(mortgageCalc(200000, 0.05, 645, 'Damon'));
+
+
+
 // 🏡 Task 3: Function
 /* Create a function called `mortgageCalculator` that combines all of the steps from task 1 and 2 and returns a sentence "{Name}, your monthly rate is ${monthlyRate}"
 
@@ -103,4 +103,4 @@ For example, variableInterestRate(200000, 0.04, 30) should console.log:
 
 /* 🏡  Refactor your `variableInterestRate()` function to accept an array of interest rates (make sure to copy and paste as to not lose your work!) */
 
-document.addEventListener('click', mortCalc("Damon"));
+document.addEventListener( 'click', mortCalc( "Damon" ) );
