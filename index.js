@@ -72,17 +72,18 @@ Then, add control flow within your function such that IF creditScore is above 74
 // 🏡 Task 6: Loops
 /* Write a new function called variableInterestRate. This function should be the same as mortgageCalculator, except it should console.log the monthly payment for 10 different interest rates at 0.5% increments plus or minus 2% from the inputted interest rate. Complete these calculations using a for loop.
 */
-function varMortgageCalc(P, I)
+function varMortgageCalc(P, I, N)
 {
-
-    let mIr = I/12;
+    for(i=I-0.02, i<=I+0.02, i+0.005){
+    let mIr = i/12;
     let numer = mIr * Math.pow( ( 1 + mIr ), mnths );
     let denom = Math.pow( (mIr  + 1 ), mnths)-1;
     const monthlyRate = Math.round(P * ( numer / denom ));
     return `${N}, your monthly rate is ${monthlyRate}`;
+    };
 }
 
-console.log(mortgageCalc(200000, 0.05, 645, 'Damon'));
+console.log(mortgageCalc(200000, 0.05, 'Damon'));
 
 /*
 For example, variableInterestRate(200000, 0.04, 30) should console.log:
