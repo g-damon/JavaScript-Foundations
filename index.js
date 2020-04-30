@@ -12,7 +12,7 @@ const Name = '';
 Create a variable called `monthlyInterestRate` and give it the value of interest rate divided by 12.
 Create another variable called `periods` and give it the value of years*12.
 */
-const mIr = I / 12;
+
 const mnths = Y * 12;
 // 🏡 Task 2: Harder Math
 /* Create your calculator! Use the formula in the ReadMe to run calculations on your numbers. Save the final value into a variable called monthlyRate.
@@ -22,7 +22,6 @@ When your math is correct, monthlyRate will equal 1073.64
 */
 function mortgageCalc(P, I, CS, N)
 {
-    let mIr = I/12;
     if(CS>740) {
         I = I - 0.005;}
         else if(CS<660) {
@@ -30,6 +29,7 @@ function mortgageCalc(P, I, CS, N)
         } else {
             I = I;
         }
+    let mIr = I/12;
     let numer = mIr * Math.pow( ( 1 + mIr ), mnths );
     let denom = Math.pow( (mIr  + 1 ), mnths)-1;
     const monthlyRate = Math.round(P * ( numer / denom ));
@@ -71,7 +71,20 @@ Then, add control flow within your function such that IF creditScore is above 74
 
 // 🏡 Task 6: Loops
 /* Write a new function called variableInterestRate. This function should be the same as mortgageCalculator, except it should console.log the monthly payment for 10 different interest rates at 0.5% increments plus or minus 2% from the inputted interest rate. Complete these calculations using a for loop.
+*/
+function varMortgageCalc(P, I)
+{
 
+    let mIr = I/12;
+    let numer = mIr * Math.pow( ( 1 + mIr ), mnths );
+    let denom = Math.pow( (mIr  + 1 ), mnths)-1;
+    const monthlyRate = Math.round(P * ( numer / denom ));
+    return `${N}, your monthly rate is ${monthlyRate}`;
+}
+
+console.log(mortgageCalc(200000, 0.05, 645, 'Damon'));
+
+/*
 For example, variableInterestRate(200000, 0.04, 30) should console.log:
 
 "{Name}, with an interest rate of 0.02, your monthly rate is $739"
