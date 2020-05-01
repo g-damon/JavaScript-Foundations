@@ -20,16 +20,16 @@ Hint #2: you'll need to use the `math` object for parts of this calculation!
 When your math is correct, monthlyRate will equal 1073.64
 */
 
-function mortgageCalc(P, I)
+function Calc(P, I)
 {
     let mIr = I/12;
     let numer = mIr * Math.pow( ( 1 + mIr ), mnths );
-    let denom = Math.pow( (mIr  + 1 ), mnths)-1;
+    let denom = Math.pow((mIr  + 1 ), mnths)-1;
     const monthlyRate = P * ( numer / denom );
-    return "monthly rate:" monthlyRate ;
+    console.log(`monthly rate ${monthlyRate}`);
 }
 
-console.log(Calc(200000, 0.05));
+Calc(200000, 0.05);
 
 
 
