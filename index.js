@@ -20,17 +20,15 @@ Hint #2: you'll need to use the `math` object for parts of this calculation!
 When your math is correct, monthlyRate will equal 1073.64
 */
 
-function Calc(P, I)
-{
+function Calc(P, I) {
     let mIr = I/12;
     let numer = mIr * Math.pow( ( 1 + mIr ), mnths );
     let denom = Math.pow((mIr  + 1 ), mnths)-1;
     const monthlyRate = P * ( numer / denom );
-    console.log(`monthly rate ${monthlyRate}`);
+    console.log(`monthly rate: ${monthlyRate}`);
 }
 
 Calc(200000, 0.05);
-
 
 
 function mortgageCalc(P, I, CS, N)
@@ -88,7 +86,7 @@ Then, add control flow within your function such that IF creditScore is above 74
 function varMortgageCalc(P, I, N) {
     for(i= I-0.02; i<=I+0.02; i+=0.005) {
         let mIr = i/12;
-        let numer = mIr * Math.pow( ( 1 + mIr ), mnths );
+        let numer = mIr * Matdh.pow( ( 1 + mIr ), mnths );
         let denom = Math.pow( (mIr  + 1 ), mnths)-1;
         const monthlyRate = Math.round(P * ( numer / denom ));
         console.log(`${N}, at an interest rate of ${mIr}, your monthly rate will be ${monthlyRate}`);
@@ -128,5 +126,3 @@ For example, variableInterestRate(200000, 0.04, 30) should console.log:
 
 
 /* 🏡  Refactor your `variableInterestRate()` function to accept an array of interest rates (make sure to copy and paste as to not lose your work!) */
-
-document.addEventListener( 'click', mortCalc( "Damon" ) );
