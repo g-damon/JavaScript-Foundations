@@ -6,7 +6,6 @@
 */
 
 const Y = 30;
-const Name = '';
 // 🏡 Task 1.5: Simple Math
 /* To create a monthly mortgage rate calculator, we need to know the number of years in months and the monthly interest rate.
 Create a variable called `monthlyInterestRate` and give it the value of interest rate divided by 12.
@@ -20,6 +19,20 @@ Hint: while these calculations can be done in one line, it might be helpful to c
 Hint #2: you'll need to use the `math` object for parts of this calculation!
 When your math is correct, monthlyRate will equal 1073.64
 */
+
+function mortgageCalc(P, I)
+{
+    let mIr = I/12;
+    let numer = mIr * Math.pow( ( 1 + mIr ), mnths );
+    let denom = Math.pow( (mIr  + 1 ), mnths)-1;
+    const monthlyRate = P * ( numer / denom );
+    return "monthly rate:" monthlyRate ;
+}
+
+console.log(Calc(200000, 0.05));
+
+
+
 function mortgageCalc(P, I, CS, N)
 {
     if(CS>740) {
@@ -73,16 +86,16 @@ Then, add control flow within your function such that IF creditScore is above 74
 /* Write a new function called variableInterestRate. This function should be the same as mortgageCalculator, except it should console.log the monthly payment for 10 different interest rates at 0.5% increments plus or minus 2% from the inputted interest rate. Complete these calculations using a for loop.
 */
 function varMortgageCalc(P, I, N) {
+    for(i= I-0.02; i<=I+0.02; i+=0.005) {
+        let mIr = i/12;
+        let numer = mIr * Math.pow( ( 1 + mIr ), mnths );
+        let denom = Math.pow( (mIr  + 1 ), mnths)-1;
+        const monthlyRate = Math.round(P * ( numer / denom ));
+        console.log(`${N}, at an interest rate of ${mIr}, your monthly rate will be ${monthlyRate}`);
+        }
+    }
 
-for(i=I-0.02, i<=I+0.02, i+0.005){
-    let mIr = i/12;
-    let numer = mIr * Math.pow( ( 1 + mIr ), mnths );
-    let denom = Math.pow( (mIr  + 1 ), mnths)-1;
-    const monthlyRate = Math.round(P * ( numer / denom ));
-    console.log(`${N}, at an interest rate of ${mIr}, your monthly rate will be ${monthlyRate}`);
-    };
-}
-
+    varMortgageCalc(200000, 0.05, "Damon");
 
 /*
 For example, variableInterestRate(200000, 0.04, 30) should console.log:
